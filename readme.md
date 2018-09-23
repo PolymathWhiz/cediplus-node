@@ -8,10 +8,14 @@ For more information on the services listed above, visit the [CediPlus website](
 
 ## How to use
 
-`npm install cediplus`
+1 - `npm install cediplus`
 
+2 - `const CediPlus = require('cediplus');`
 
- You can get your PUBLICK_KEY and SECRET_KEY from the Rave dashboard.
+3 -`const cediplus = new CediPlus(API_KEY, DESCRIPTION, WALLET_NUMBER, WALLET_TYPE, AMOUNT, 
+YOUR_PRODUCTION_CALLBACK_URL);`
+
+ You can get your API_KEY from your CediPlus dashboard.
 
  Go [here](https://cediplus.com) to get your live api key.
 
@@ -20,18 +24,19 @@ For more information on the services listed above, visit the [CediPlus website](
 ```javascript
 const CediPlus = require('cediplus');
 
-const cediplus = new CediPlus(API_KEY, DESCRIPTION, WALLET_NUMBER, WALLET_TYPE, AMOUNT, YOUR_PRODUCTION_CALLBACK_URL);
+const data = {
+               "api_key": "your_api_key",
+               "description": "transaction_description",
+               "wallet_number": "0574017xxx",
+               "wallet_type": "t or m",
+               "amount": "1.00",
+               "callback_url": "https://yourwebsite.com/callback"
+             };
 
-cediplus.Charge({
-  "api_key": "your_api_key",
-  "description": "transaction_description",
-  "wallet_number": "0574017xxx",
-  "wallet_type": "t or m",
-  "amount": "1.00",
-  "callback_url": "https://yourwebsite.com/callback"
-}).then(response => {
+const cediplus = new CediPlus(data);
+
+cediplus.Charge().then(response => {
     console.log(response.body);
-
 }).catch(error => {
     console.error(`Error - ${error}`);
 
