@@ -17,7 +17,7 @@
     "payments"
   ],
   "author": "Miracle Anyanwu (PolymathWhiz)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/PolymathWhiz/cediplus-node/issues"
   },
